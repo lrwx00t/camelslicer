@@ -4,10 +4,10 @@ fn main() {
     let args: Vec<String> = env::args().collect();
     println!("{:?}", args);
     let arg_str = args.into_iter().nth(1).unwrap();
-    println!("{:?}", pascalize(&arg_str));
+    println!("{:?}", camelslice(&arg_str));
 }
 
-fn pascalize(s: &str) -> Vec<String> {
+fn camelslice(s: &str) -> Vec<String> {
     let mut runes: Vec<Vec<char>> = Vec::new();
     let mut case = 0;
     let mut lastcase = 0;
@@ -57,7 +57,7 @@ mod tests {
     fn test_group_runes() {
         let input = "HelloWorld";
         let expected_output = vec!["Hello", "World"];
-        assert_eq!(pascalize(input), expected_output);
+        assert_eq!(camelslice(input), expected_output);
 
         // let input = "HelloWorldThisIsRust";
         // let expected_output = vec!["H", "ello", "W", "orld", "T", "his", "I", "s", "R", "ust"];
